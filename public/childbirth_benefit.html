@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <script>window.Promise||document.write('<script src="dist\\js\\polyfill.min.js"><\/script>');</script>
+  <script src="dist/js/jquery-3.3.1.min.js"></script>
+  <script src="dist/js/vue.js"></script>
+  <title>Единовременное пособие при рождении ребенка — Портал ПАО СКБ Приморья "Примсоцбанк"</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="src/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css">
+</head>
+
+<body>
+  <div style="height:40px; background:#428A37;"></div>
+  <div class="container-fluid">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div role="tabpanel" class="tab-pane active" id="client_link">
+          <!--<form class="form" id="apply" @submit.prevent="onSubmit" action="/thank" method="post">-->
+          <form class="form" id="apply" @submit.prevent="onSubmit">
+            <div class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="form-block">
+                  <div class="form-block__body">
+                    <div class="row justify-content-center">
+                      <div class="col-12 js-form-content">
+                        <h3>Единовременное пособие при рождении ребенка</h3>
+                        <input type="hidden" name="formName" value="Единовременное пособие при рождении ребенка">
+                        <div class="form-group">
+                          <label for="fio">ФИО</label>
+                          <input id="fio" class="form-control form-control-lg" type="text" v-model="fio" name="fio" v-on:input="searchEmloyee"
+                            v-validate="'required|fio'" :class="{'input': true, 'is-danger': errors.has('fio') }">
+                          <span v-show="errors.has('fio')" class="help is-danger">{{
+                            errors.first('fio') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="date24">Дата справки ф. №24</label>
+                          <input type="date" id="date24" name="date24" class="form-control form-control-lg" data-fv-field="date24"
+                            v-validate="'required|date24'" :class="{'input': true, 'is-danger': errors.has('date24') }">
+                          <span v-show="errors.has('date24')" class="help is-danger">{{
+                            errors.first('date24') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="numer24">Номер справки ф. №24</label>
+                          <input id="numer24" class="form-control form-control-lg" type="text" v-model="number24"
+                            v-validate="'required|number24'" name="number24" :class="{'input': true, 'is-danger': errors.has('number24') }">
+                          <span v-show="errors.has('number24')" class="help is-danger">{{
+                            errors.first('number24') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="birthSerDate">Дата выдачи свидетельства о рождении</label>
+                          <input type="date" id="birthSerDate" name="birthSerDate" class="form-control form-control-lg" data-fv-field="birthSerDate"
+                            v-validate="'required|birthSerDate'" :class="{'input': true, 'is-danger': errors.has('birthSerDate') }">
+                          <span v-show="errors.has('birthSerDate')" class="help is-danger">{{
+                            errors.first('birthSerDate') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="birthSerSerial">Серия свидетельства о рождении</label>
+                          <input id="birthSerSerial" class="form-control form-control-lg" type="text" v-model="birthSerSerial"
+                            v-validate="'required|birthSerSerial'" name="birthSerSerial" :class="{'input': true, 'is-danger': errors.has('birthSerSerial') }">
+                          <span v-show="errors.has('birthSerSerial')" class="help is-danger">{{
+                            errors.first('birthSerSerial') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="birthSerNum">Номер свидетельства о рождении</label>
+                          <input id="birthSerNum" class="form-control form-control-lg" type="text" v-model="birthSerNum"
+                            v-validate="'required|birthSerNum'" name="birthSerNum" :class="{'input': true, 'is-danger': errors.has('birthSerNum') }">
+                          <span v-show="errors.has('birthSerNum')" class="help is-danger">{{
+                            errors.first('birthSerNum') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="anotherParentNum">Номер справки от другого родителя о получении пособия</label>
+                          <input id="anotherParentNum" class="form-control form-control-lg" type="text" v-model="anotherParentNum"
+                            v-validate="'required|anotherParentNum'" name="anotherParentNum" :class="{'input': true, 'is-danger': errors.has('anotherParentNum') }">
+                          <span v-show="errors.has('anotherParentNum')" class="help is-danger">{{
+                            errors.first('anotherParentNum') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="anotherParentDate">Дата справки от другого родителя о получении пособия</label>
+                          <input type="date" id="anotherParentDate" name="anotherParentDate" class="form-control form-control-lg" data-fv-field="anotherParentDate"
+                            v-validate="'required|anotherParentDate'" :class="{'input': true, 'is-danger': errors.has('anotherParentDate') }">
+                          <span v-show="errors.has('anotherParentDate')" class="help is-danger">{{
+                            errors.first('anotherParentDate') }}</span>
+                        </div>
+                        <div class="form-block__group text-center text-md-left" style="padding-top: 1.2em;">
+                          <button class="btn btn-lg btn-primary" type="submit" >Отправить</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="dist/js/bundle.js"></script>
+<script src="dist/js/bootstrap.bundle.js"></script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

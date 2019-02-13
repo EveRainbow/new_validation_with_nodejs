@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <script>window.Promise||document.write('<script src="dist\\js\\polyfill.min.js"><\/script>');</script>
+  <script src="dist/js/jquery-3.3.1.min.js"></script>
+  <script src="dist/js/vue.js"></script>
+  <title>Больничный по беременности и родам — Портал ПАО СКБ Приморья "Примсоцбанк"</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="dist/css/style.css">
+  <link rel="stylesheet" href="src/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.css">
+</head>
+
+<body>
+  <div style="height:40px; background:#428A37;"></div>
+  <div class="container-fluid">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div role="tabpanel" class="tab-pane active" id="client_link">
+          <form class="form" id="apply" @submit.prevent="onSubmit">
+            <div class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="form-block">
+                  <div class="form-block__body">
+                    <div class="row justify-content-center">
+                      <div class="col-12 js-form-content">
+                        <h3>Больничный по беременности и родам</h3>
+                        <input type="hidden" name="formName" value="Больничный по беременности и родам">
+                        <div class="form-group">
+                          <label for="fio">ФИО</label>
+                          <input id="fio" class="form-control form-control-lg" type="text" v-model="fio" name="fio" v-on:input="searchEmloyee"
+                            v-validate="'required|fio'" :class="{'input': true, 'is-danger': errors.has('fio') }">
+                          <span v-show="errors.has('fio')" class="help is-danger">{{
+                            errors.first('fio') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="blNumber">Номер больничного листа</label>
+                          <input id="blNumber" class="form-control form-control-lg" type="text" v-model="blNumber"
+                            v-validate="'required|blNumber'" name="blNumber" :class="{'input': true, 'is-danger': errors.has('blNumber') }">
+                          <span v-show="errors.has('blNumber')" class="help is-danger">{{
+                            errors.first('blNumber') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="blDate">Дата выдачи больничного листа</label>
+                          <input type="date" id="blDate" name="blDate" class="form-control form-control-lg" data-fv-field="blDate"
+                            v-validate="'required|blDate'" :class="{'input': true, 'is-danger': errors.has('blDate') }">
+                          <span v-show="errors.has('blDate')" class="help is-danger">{{
+                            errors.first('blDate') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="earlyDatesNumber">Номер справки о постановке на ранних сроках</label>
+                          <input id="earlyDatesNumber" class="form-control form-control-lg" type="text" v-model="earlyDatesNumber"
+                            v-validate="'required|earlyDatesNumber'" name="earlyDatesNumber" :class="{'input': true, 'is-danger': errors.has('earlyDatesNumber') }">
+                          <span v-show="errors.has('earlyDatesNumber')" class="help is-danger">{{
+                            errors.first('earlyDatesNumber') }}</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="earlyDatesDate">Дата справки о постановке на ранних сроках</label>
+                          <input type="date" id="earlyDatesDate" name="earlyDatesDate" class="form-control form-control-lg" data-fv-field="earlyDatesDate"
+                            v-validate="'required|earlyDatesDate'" :class="{'input': true, 'is-danger': errors.has('earlyDatesDate') }">
+                          <span v-show="errors.has('earlyDatesDate')" class="help is-danger">{{
+                            errors.first('earlyDatesDate') }}</span>
+                        </div>
+                        <div class="form-block__group text-center text-md-left" style="padding-top: 1.2em;">
+                          <button class="btn btn-lg btn-primary" type="submit" >Отправить</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="dist/js/bundle.js"></script>
+<script src="dist/js/bootstrap.bundle.js"></script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
